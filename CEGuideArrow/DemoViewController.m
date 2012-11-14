@@ -51,12 +51,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-    
-    
-}
 
 - (void)loadView
 {
@@ -121,7 +115,7 @@
         
     } else if (sender == _buttonThree) {
         
-        [[CEGuideArrow sharedGuideArrow] showInWindow:APP_WINDOW atPosition:CEGuideArrowPositionTypeRightCenter inView:_buttonThree atAngle:180.0 length:30.0];
+        [[CEGuideArrow sharedGuideArrow] showInWindow:APP_WINDOW atPosition:CEGuideArrowPositionTypeRightCenter inView:_buttonThree atAngle:180.0 length:100.0];
         
     } else if (sender == _buttonFour) {
         

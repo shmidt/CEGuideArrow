@@ -60,12 +60,6 @@ static CEGuideArrow *_sharedGuideArrow;
     return self;
 }
 
-- (void)dealloc
-{
-    [_arrowView release];
-    
-    [super dealloc];
-}
 
 - (UIImage *)defaultArrowImage
 {
@@ -148,7 +142,7 @@ static CEGuideArrow *_sharedGuideArrow;
     
     CABasicAnimation *yAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
     yAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    yAnimation.fromValue = [NSNumber numberWithFloat:0];
+    yAnimation.fromValue = @0.0f;
     yAnimation.toValue = [NSNumber numberWithFloat:0.0 - 10.0 * sin(M_PI/180.0 * degrees)];
     yAnimation.repeatCount = INT_MAX;
     yAnimation.autoreverses = YES;
@@ -158,7 +152,7 @@ static CEGuideArrow *_sharedGuideArrow;
     
     CABasicAnimation *xAnimation = [CABasicAnimation animationWithKeyPath:@"position.x"];
     xAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    xAnimation.fromValue = [NSNumber numberWithFloat:0];
+    xAnimation.fromValue = @0.0f;
     xAnimation.toValue = [NSNumber numberWithFloat:0.0 - 10.0 * cos(M_PI/180.0 * degrees)];
     xAnimation.repeatCount = INT_MAX;
     xAnimation.autoreverses = YES;
@@ -169,7 +163,7 @@ static CEGuideArrow *_sharedGuideArrow;
     CAAnimationGroup *bounceAnimation = [CAAnimationGroup animation];
     bounceAnimation.fillMode = kCAFillModeForwards;
     bounceAnimation.removedOnCompletion = NO;
-    [bounceAnimation setAnimations:[NSArray arrayWithObjects:yAnimation, xAnimation, nil]];
+    [bounceAnimation setAnimations:@[yAnimation, xAnimation]];
     bounceAnimation.duration = 0.25;
     bounceAnimation.repeatCount = INT_MAX;
     bounceAnimation.autoreverses = YES;

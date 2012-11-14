@@ -56,7 +56,7 @@ typedef enum {
     CGFloat _length;
 }
 
-@property (nonatomic, assign) id<CEGuideArrowDelegate> delegate;
+@property (nonatomic, weak) id<CEGuideArrowDelegate> delegate;
 @property (nonatomic, assign, getter = isDisplayed) BOOL displayed;
 
 + (CEGuideArrow *)sharedGuideArrow;
